@@ -233,6 +233,13 @@ const columns = ref<any[]>([
     key: "Url",
     width: 80,
     render: (row: appType.MediaInfo) => {
+      if (row.Classify === "doc") {
+        return h('div', {
+            style: 'max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer;',
+            title: row.Url
+          }, row.Url
+        )
+      }
       if (row.Classify === "image") {
         return h("div", {
           style: "width: 100%;max-height:80px;overflow:hidden;"

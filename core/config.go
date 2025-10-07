@@ -170,6 +170,7 @@ func getDefaultMimeMap() map[string]MimeInfo {
 		"application/msword": {Type: "doc", Suffix: ".doc"},
 		"application/rtf":    {Type: "doc", Suffix: ".rtf"},
 		"text/rtf":           {Type: "doc", Suffix: ".rtf"},
+		"text/html":          {Type: "doc", Suffix: ".html"},
 		"application/vnd.oasis.opendocument.text":                                 {Type: "doc", Suffix: ".odt"},
 		"application/vnd.openxmlformats-officedocument.wordprocessingml.document": {Type: "doc", Suffix: ".docx"},
 		"font/woff": {Type: "font", Suffix: ".woff"},
