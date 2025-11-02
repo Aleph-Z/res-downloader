@@ -36,6 +36,7 @@
     "clear_list_tip": "清空所有记录?",
     "remember_clear_choice": "记住此选择，下次直接清除",
     "batch_download": "批量下载",
+    "batch_copy": "批量复制",
     "batch_export": "批量导出",
     "batch_import": "批量导入",
     "export_url": "导出链接",

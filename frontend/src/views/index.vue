@@ -59,6 +59,14 @@
             </template>
             {{ t('index.batch_download') }}
           </NButton>
+          <NButton tertiary type="primary" @click.stop="batchCopy">
+            <template #icon>
+              <n-icon>
+                <LinkOutline/>
+              </n-icon>
+            </template>
+            {{ t('index.batch_copy') }}
+          </NButton>
           <NButton tertiary type="info">
             <NPopover placement="bottom" trigger="hover">
               <template #trigger>
@@ -154,6 +162,7 @@ import Password from "@/components/Password.vue"
 import {useI18n} from 'vue-i18n'
 import {
   DownloadOutline,
+  LinkOutline,
   ArrowRedoCircleOutline,
   ServerOutline,
   SearchOutline,
@@ -685,6 +694,23 @@ const batchDown = async () => {
   })
 
   checkedRowKeysValue.value = []
+}
+
+const batchCopy = async () => {
+  if (checkedRowKeysValue.value.length <= 0) {
+    window?.$message?.error(t("index.use_data"))
+    return
+  }
+
+  let urls = data.value.filter(item => checkedRowKeysValue.value.includes(item.Id) && item.Url).map(item=>item.Url).join('\n')
+
+  ClipboardSetText(urls).then((is: boolean) => {
+    if (is) {
+      window?.$message?.success(t("common.copy_success"))
+    } else {
+      window?.$message?.error(t("common.copy_fail"))
+    }
+  })
 }
 
 const batchCancel = async () => {
