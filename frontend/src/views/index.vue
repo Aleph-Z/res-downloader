@@ -698,8 +698,7 @@ const batchDown = async () => {
 
 const batchCopy = async () => {
   if (checkedRowKeysValue.value.length <= 0) {
-    window?.$message?.error(t("index.use_data"))
-    return
+    checkedRowKeysValue.value = data.value.map(item=>item.Id)
   }
 
   let urls = data.value.filter(item => checkedRowKeysValue.value.includes(item.Id) && item.Url).map(item=>item.Url).join('\n')
